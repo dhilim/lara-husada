@@ -21,6 +21,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/registration', function () {
+    return view('pages/registration');
+})->middleware(['auth'])->name('registration');
+
 Route::get('/todo', function () {
     return view('todo');
 })->middleware(['auth'])->name('todo');
