@@ -2,4 +2,5 @@
     <button wire:click="increment">+</button>
     <h1>{{ $count }}</h1>
     <button wire:click="decrement">-</button>
+    <div wire:loading.flex wire:target="increment">Loading counter</div>
 </div>
