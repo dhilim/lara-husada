@@ -14,6 +14,6 @@ class RegisterPelayanan extends Model
     ];
 
     protected $fillable = [
-        'date_in', 'date_out', 'pasien_rm', 'unit_id', 'dr_id'
+        'date_in', 'date_out', 'pasien_rm', 'unit_id', 'dr_id', 'payor_id'
     ];
 }

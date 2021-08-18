@@ -24,4 +24,12 @@ class PasienSearch extends Component
         $this->pasien = $pasien;
         $this->emitTo('registration-box', 'pasienReceived', $pasien);
     }
+
+    public function clearPasien()
+    {
+        $this->pasien = '';
+        $this->rm = '';
+
+        $this->emitTo('registration-box', 'pasienCleared');
+    }
 }

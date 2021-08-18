@@ -15,11 +15,12 @@ class CreateRegisterPelayanansTable extends Migration
     {
         Schema::create('register_pelayanans', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('date_in');
-            $table->timestamp('date_out');
+            $table->timestamp('date_in')->nullable();
+            $table->timestamp('date_out')->nullable();
             $table->string('pasien_rm');
             $table->string('unit_id');
-            $table->string('dr_id');
+            $table->string('dr_id')->nullable();
+            $table->string('payor_id')->nullable();
             $table->timestamps();
         });
     }
