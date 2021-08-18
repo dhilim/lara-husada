@@ -49,8 +49,8 @@
 
 <script>
     window.addEventListener('pasien-registered', event => {
-        alert('Pasien teregister, value: ' + event.detail.register.pasien_rm);
-        console.log(event.detail.register);
+        alert('Pasien berhasil terdaftar ke klinik ' + event.detail.register.unit_id + ' oleh dokter ' + event.detail.register.dr_id + ' dengan nomor urut: ' + event.detail.jurnal_ralan.queue);
+        console.log(event.detail);
     })
 
     window.addEventListener('pasien-register-updated', event => {

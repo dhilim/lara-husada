@@ -16,4 +16,9 @@ class RegisterPelayanan extends Model
     protected $fillable = [
         'date_in', 'date_out', 'pasien_rm', 'unit_id', 'dr_id', 'payor_id'
     ];
+
+    public function jurnal_ralan()
+    {
+        return $this->hasMany(JurnalRalan::class, 'register_id', 'id');
+    }
 }

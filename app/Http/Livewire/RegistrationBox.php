@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\JurnalRalan;
 use App\Models\Pasien;
 use App\Models\RegisterPelayanan;
 use Livewire\Component;
@@ -73,9 +74,22 @@ class RegistrationBox extends Component
             'payor_id' => $this->payor_id,
         ]);
 
-        $this->register = $register;
+        $register->jurnal_ralan()->create([
+            'register_date' => now()->format('Y-m-d'),
+            'pasien_rm' => $this->pasien_rm,
+            'unit_id' => $this->unit_id,
+            'dr_id' => $this->dr_id,
+        ]);
 
-        $this->dispatchBrowserEvent('pasien-registered', ['register' => $register]);
+        $this->register = $register;
+        $jurnalRalan = JurnalRalan::where([
+            'register_date' => now()->format('Y-m-d'),
+            'pasien_rm' => $this->pasien_rm,
+            'unit_id' => $this->unit_id,
+            'dr_id' => $this->dr_id,
+        ])->first();
+
+        $this->dispatchBrowserEvent('pasien-registered', ['register' => $register, 'jurnal_ralan' => $jurnalRalan]);
     }
 
     public function updateForm()
