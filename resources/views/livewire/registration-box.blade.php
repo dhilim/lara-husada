@@ -1,4 +1,4 @@
-<div class="border-dotted border-green-400 border flex space-x-4">
+<div class="flex space-x-4">
     <!-- <form action="registration-ralan" action="post"> -->
     <input type="hidden" wire:model="pasien_rm">
     <input type="hidden" wire:model="reg_id">

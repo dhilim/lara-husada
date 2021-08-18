@@ -10,6 +10,17 @@ class PasienSearch extends Component
     public $rm = '';
     public $pasien;
 
+    protected $listeners = ['pasienCreated'];
+
+    public function pasienCreated($pasien)
+    {
+        $this->rm = $pasien['rm'];
+
+        $this->search();
+
+        $this->rm = '';
+    }
+
     public function render()
     {
         return view('livewire.pasien-search', [
@@ -19,10 +30,16 @@ class PasienSearch extends Component
 
     public function search()
     {
-        $pasien = Pasien::find($this->rm);
+        $pasien = Pasien::where(['rm' => $this->rm])->first();
 
-        $this->pasien = $pasien;
-        $this->emitTo('registration-box', 'pasienReceived', $pasien);
+        if ($pasien) {
+            $this->pasien = $pasien;
+            $this->emitTo('registration-box', 'pasienReceived', $pasien);
+            $this->emitTo('pasien-identity', 'pasienFound', $pasien);
+        } else {
+            $this->dispatchBrowserEvent('pasien-not-found');
+            $this->rm = '';
+        }
     }
 
     public function clearPasien()
@@ -31,5 +48,6 @@ class PasienSearch extends Component
         $this->rm = '';
 
         $this->emitTo('registration-box', 'pasienCleared');
+        $this->emitTo('pasien-identity', 'pasienCleared');
     }
 }
