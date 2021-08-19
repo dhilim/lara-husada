@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <livewire:pasien-search />
-                    <div x-data="{ tab: 'identity' }" id="tab_wrapper">
+                    <div x-data="{ tab: 'registration' }" id="tab_wrapper">
                         <nav class="flex flex-col sm:flex-row">
                             <a :class="{ 'text-blue-500 border-b-2 font-medium border-blue-500': tab === 'identity' }" class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none" @click.prevent="tab = 'identity'" href="#">Identitas</a>
                             <a :class="{ 'text-blue-500 border-b-2 font-medium border-blue-500': tab === 'registration' }" class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none" @click.prevent="tab = 'registration'" href="#">Registrasi</a>

@@ -1,17 +1,5 @@
 <div class="md:grid md:grid-flow-col">
     <div class="mt-5 md:mt-0 md:col-span-full">
-        <!-- <form wire:submit.prevent="create" method="post">
-            <input type="hidden" name="pasien_id" wire:model="pasien.id">
-            <input type="text" class="flex-1 rounded-md" placeholder="Nama" wire:model="pasien.name">
-            <select name="gender" id="gender" wire:model="pasien.gender" class="flex-1 rounded-md">
-                <option value="">-- Pilih jenis kelamin --</option>
-                <option value="L">Laki-laki</option>
-                <option value="P">Perempuan</option>
-            </select>
-            <button wire:loading.attr="disabled" class="bg-green-300 rounded-lg hover:bg-green-600 hover:text-white p-1" class="block">
-                <span class="fa fa-spinner animate-spin" wire:loading wire:target="create"></span> Simpan
-            </button>
-        </form> -->
         <form wire:submit.prevent="create" method="post">
             <div class="grid grid-cols-12 gap-6">
                 <div class="col-span-6">
@@ -45,7 +33,7 @@
                         <label for="pasien-alamat" class="block text-sm font-medium text-gray-700">
                             Alamat
                         </label>
-                        <textarea wire:model="pasien.address" type="text" name="pasien-alamat" id="pasien-alamat" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md sm:text-sm border-gray-400 shadow-sm" placeholder="Alamat lengkap"></textarea>
+                        <textarea wire:model="pasien.address" wire:keydown.ctrl.enter="create" type="text" name="pasien-alamat" id="pasien-alamat" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md sm:text-sm border-gray-400 shadow-sm" placeholder="Alamat lengkap"></textarea>
                     </div>
                     <div class="col-span-12 my-2">
                         <button wire:loading.attr="disabled" class="bg-green-400 rounded-lg hover:bg-green-800 hover:text-white p-2 float-right">
