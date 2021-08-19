@@ -17,7 +17,9 @@ class CreatePasiensTable extends Migration
             $table->id();
             $table->integer('rm');
             $table->string('name');
-            $table->string('gender');
+            $table->string('gender')->nullable();
+            $table->date('dob')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }

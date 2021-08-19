@@ -12,7 +12,7 @@ class Pasien extends Model
     // protected $primaryKey = 'rm';
 
     protected $fillable = [
-        'rm', 'name', 'gender'
+        'rm', 'name', 'gender', 'dob', 'address'
     ];
 
     protected static function boot()

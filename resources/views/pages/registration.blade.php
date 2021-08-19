@@ -17,10 +17,10 @@
                         </nav>
 
                         <!-- The tabs content -->
-                        <div x-show="tab === 'identity'">
+                        <div x-show="tab === 'identity'" class="py-4">
                             <livewire:pasien-identity />
                         </div>
-                        <div x-show="tab === 'registration'">
+                        <div x-show="tab === 'registration'" class="py-4">
                             <livewire:registration-box />
                         </div>
                     </div>
