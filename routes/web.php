@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Route::get('/dashboard', function () {
@@ -24,9 +24,5 @@ Route::get('/dashboard', function () {
 Route::get('/registration', function () {
     return view('pages/registration');
 })->middleware(['auth'])->name('registration');
-
-Route::get('/todo', function () {
-    return view('todo');
-})->middleware(['auth'])->name('todo');
 
 require __DIR__ . '/auth.php';
